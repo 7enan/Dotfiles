@@ -1,0 +1,88 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 30,
+    "spacing": 5,
+    "modules-left": [],
+    "modules-center": ["clock"],
+    "modules-right": ["tray", "pulseaudio","bluetooth", "backlight", "power-profiles-daemon", "battery"],
+    "width": 1361,
+    "reload_style_on_change": true,
+    "margin-top": 5,
+
+    "tray": {
+        "icon-size": 18,
+        "spacing": 10
+    },
+
+    "clock": {
+        "format": "{:%H:%M}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+
+    "battery": {
+        "interval": 5,
+
+        "states": {
+            "good": 95,
+            "warning": 20,
+            "critical": 10
+        },
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% 󰢝",
+        "format-full": "{capacity}% 󰂅",
+        "format-alt": "{time} {icon}",
+        "format-icons": ["󰁺", "󰁼", "󰁾", "󰂀", "󰂂"]
+    },
+
+    "power-profiles-daemon": {
+        "format": "{icon}",
+        "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+        "tooltip": true,
+        "format-icons": {
+            "default": "󰉁",
+            "performace": "󰉁",
+            "balanced": "",
+            "power-saver": ""
+        }
+    },
+    
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{icon}",
+        "tooltip": true,
+        "tooltip-format": "{percent}% {icon}",
+        "format-icons": ["" , "󰖨"]
+    },
+
+    "pulseaudio": {
+        "format": "{icon}",
+        "format-bluetooth": "{icon}",
+        "format-muted": "",
+        "tooltip": true,
+        "tooltip-format": "{volume}% {icon}",
+        "tooltip-format-bluetooth": "{volume}% {icon}",
+        "format-icons": {
+            "default": ["", ""]
+        },
+        "scroll-step": 1,
+        "on-click-right": "pavucontrol",
+        "ignored-sinks": ["Easy Effects Sink"]
+    },
+
+    
+    "bluetooth": {
+	    "format": "󰂯{status}",
+	    "format-connected": "󰂰",
+	    "format-connected-battery": "󰂰{device_battery_percentage}%",
+	    // "format-device-preference": [ "device1", "device2" ], // preference list deciding the displayed device
+	    "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+	    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+	    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+	    "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+        "on-click": "~/Dotfiles/waybar/Scripts/toggle-bluetooth.sh",
+        "on-click-right": "blueman-manager 2>/dev/null"
+
+    }
+
+}

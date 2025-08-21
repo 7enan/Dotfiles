@@ -1,0 +1,44 @@
+* {
+    font-family: "FiraCode Nerd Font";
+    font-size: 14px;
+}
+
+window#waybar {
+    background: rgba(40, 40, 40, 0);
+    color: #ffffff;
+}
+
+box.modules-right {
+    border-radius: 25px;
+    background-color: rgba (46, 41, 68, 0.7);
+
+}
+
+box.modules-center {
+    border-radius: 25px;
+    background-color: rgba(46, 41, 68, 0.7);
+
+}
+
+box.modules-left {
+    border-radius: 25px;
+    background-color: rgba(46, 41, 68, 0.7);
+
+}
+
+#clock, #tray, #battery, #backlight, #power-profiles-daemon, #pulseaudio, #bluetooth {
+    padding: 0 10px;
+    color: rgba(167, 149, 245, 1);
+}
+
+#power-profiles-daemon.balanced {
+    color: rgba(167, 149, 245, 1);
+}
+
+#power-profiles-daemon.power-saver {
+    color: #4A6A61;
+}
+
+#power-profiles-daemon {
+    color: #6A4A53;
+}
