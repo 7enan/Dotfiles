@@ -1,0 +1,11 @@
+mpd_host - localhost
+mpd_port - "6600"
+mpd_music_dir - ~/Mídias/Músicas/
+
+audio_output {
+    type                    "pulseaudio"
+    name                    "pulse"
+    path                    "/tmp/mpd.pulse"
+    format                  "44100:16:2"
+}
+
