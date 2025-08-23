@@ -3,7 +3,7 @@
     "position": "top",
     "height": 30,
     "spacing": 5,
-    "modules-left": [],
+    "modules-left": ["mpd"],
     "modules-center": ["clock"],
     "modules-right": ["tray", "pulseaudio","bluetooth", "backlight", "power-profiles-daemon", "battery"],
     "width": 1361,
@@ -72,17 +72,41 @@
 
     
     "bluetooth": {
-	    "format": "󰂯{status}",
-	    "format-connected": "󰂰",
-	    "format-connected-battery": "󰂰{device_battery_percentage}%",
-	    // "format-device-preference": [ "device1", "device2" ], // preference list deciding the displayed device
-	    "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
-	    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
-	    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-	    "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+	      "format": "󰂯{status}",
+	      "format-connected": "󰂰",
+	      "format-connected-battery": "󰂰{device_battery_percentage}%",
+	      "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+	      "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+	      "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+	      "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
         "on-click": "~/Dotfiles/.config/waybar/Scripts/toggle-bluetooth.sh",
-        "on-click-right": "blueman-manager 2>/dev/null"
-
+        "on-click-right": "blueman-manager 2>/dev/null",
+    },
+    
+    "mpd": {
+        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ",
+        "format-disconnected": "Disconnected ",
+        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+        "interval": 10,
+        "consume-icons": {
+            "on": " " // Icon shows only when "consume" is on
+        },
+      "random-icons": {
+            "off": "<span color=\"#f53c3c\"></span> ", // Icon grayed out when "random" is off
+            "on": " "
+        },
+        "repeat-icons": {
+            "on": " "
+        },
+        "single-icons": {
+          "on": "1 "
+        },
+        "state-icons": {
+            "paused": "",
+            "playing": ""
+        },
+        "tooltip-format": "MPD (connected)",
+        "tooltip-format-disconnected": "MPD (disconnected)"
     }
 
 }

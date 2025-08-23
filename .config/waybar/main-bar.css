@@ -9,7 +9,7 @@ box.modules-right, box.modules-center, box.modules-left {
     background-color: rgba(46, 41, 68, 0.7);
 }
 
-#clock, #tray, #battery, #backlight, #power-profiles-daemon, #pulseaudio, #bluetooth {
+#clock, #tray, #battery, #backlight, #power-profiles-daemon, #pulseaudio, #bluetooth, #mpd {
     padding: 0 10px;
     color: rgba(167, 149, 245, 1);
     background-color: transparent;
