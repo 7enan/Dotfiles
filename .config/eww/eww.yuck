@@ -1,0 +1,15 @@
+(defpoll current_time :interval "1s" "date '+%H:%M:%S'")
+
+(defwidget clock []
+  (box :class "clock-container"
+    (label :text current_time)))
+
+(defwindow main
+  :windowtype "desktop"
+  :monitor 0
+  :geometry (geometry :x "50%" :y "50%" :anchor "center")
+  :stacking "bg"
+  :exclusive false
+  (clock)
+)
+

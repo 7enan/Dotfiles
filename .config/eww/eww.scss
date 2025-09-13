@@ -1,0 +1,14 @@
+$bg-color: #1e1e2e;
+$text-color: #cdd6f4;
+
+.clock-container {
+  background-color: $bg-color;
+  color: $text-color;
+  padding: 20px;
+  font-size: 32px;
+  border-radius: 12px;
+  font-family: "JetBrains Mono", monospace;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+
