@@ -1,0 +1,11 @@
+[Unit]
+Description=Sincronização automática das anotações com GitHub
+After=network.target
+
+[Service]
+ExecStart=/home/renan/Notes/git-sync.sh
+Restart=on-failure
+
+[Install]
+WantedBy=default.target
+
