@@ -1,14 +1,17 @@
-$bg-color: #1e1e2e;
-$text-color: #cdd6f4;
+// ~/.config/eww/eww.scss
 
-.clock-container {
-  background-color: $bg-color;
-  color: $text-color;
-  padding: 20px;
-  font-size: 32px;
-  border-radius: 12px;
-  font-family: "JetBrains Mono", monospace;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+// Estilo para o nosso widget de relógio, identificado pela classe "clock-label".
+.clock_window {
+    background-color: transparent; // Torna o fundo do WIDGET transparente.
+    color: #DBCAB6;
+    font-size: 120px;
+    font-family: "Inter", "Cantarell", sans-serif; // Adiciona uma fonte de fallback.
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); // Sombra para legibilidade.
 }
 
-
+// Estilo geral para todas as janelas do eww.
+// Ajuda a garantir que não haja decorações ou fundos inesperados.
+window {
+    background-color: transparent;
+}

@@ -2,13 +2,13 @@
     "layer": "top",
     "position": "top",
     "height": 30,
-    "spacing": 5,
+      "spacing": 5,
     "modules-left": ["mpd"],
     "modules-center": ["clock"],
     "modules-right": ["tray", "pulseaudio","bluetooth", "backlight", "power-profiles-daemon", "battery", "custom/Wlogout"],
-    "width": 1361,
+    "width": 1366,
     "reload_style_on_change": true,
-    "margin-top": 5,
+    "margin-top": 0,
 
     "tray": {
         "icon-size": 18,
