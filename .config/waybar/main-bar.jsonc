@@ -5,7 +5,7 @@
     "spacing": 5,
     "modules-left": ["mpd"],
     "modules-center": ["clock"],
-    "modules-right": ["tray", "pulseaudio","bluetooth", "backlight", "power-profiles-daemon", "battery"],
+    "modules-right": ["tray", "pulseaudio","bluetooth", "backlight", "power-profiles-daemon", "battery", "custom/Wlogout"],
     "width": 1361,
     "reload_style_on_change": true,
     "margin-top": 5,
@@ -107,6 +107,11 @@
         },
         "tooltip-format": "MPD (connected)",
         "tooltip-format-disconnected": "MPD (disconnected)"
-    }
+    },
 
+    "custom/Wlogout": {
+        "format": " ",
+        "tooltip": false,
+        "on-click": "wlogout"
+  }
 }
