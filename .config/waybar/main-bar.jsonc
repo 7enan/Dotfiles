@@ -2,22 +2,19 @@
     "layer": "top",
     "position": "top",
     "height": 30,
-      "spacing": 5,
-    "modules-left": ["mpd"],
-    "modules-center": ["clock"],
-    "modules-right": ["tray", "pulseaudio","bluetooth", "backlight", "power-profiles-daemon", "battery", "custom/Wlogout"],
+    "spacing": 5,
+    "modules-left": ["clock", "pulseaudio", "bluetooth", "network"],
+    "modules-center": ["hyprland/workspaces"],
+    "modules-right": ["tray", "backlight", "power-profiles-daemon", "battery", "custom/Wlogout"],
     "width": 1366,
     "reload_style_on_change": true,
     "margin-top": 0,
+    "margin-left": 5,
+    "margin-right": 5,
 
     "tray": {
         "icon-size": 18,
         "spacing": 10
-    },
-
-    "clock": {
-        "format": "{:%H:%M}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
     },
 
     "battery": {
@@ -72,46 +69,87 @@
 
     
     "bluetooth": {
-	      "format": "󰂯{status}",
+	      "format": "󰂯",
 	      "format-connected": "󰂰",
 	      "format-connected-battery": "󰂰{device_battery_percentage}%",
-	      "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+        "format-disabled": "󰂲",
+        "format-off": "󰂲",
+        "format-on": "󰂯",
+	      "tooltip-format": "{controller_alias}\t{controller_address}\n{status}\n{num_connections} connected",
 	      "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
 	      "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
 	      "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
         "on-click": "~/Dotfiles/.config/waybar/Scripts/toggle-bluetooth.sh",
         "on-click-right": "blueman-manager 2>/dev/null",
     },
-    
-    "mpd": {
-        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ",
-        "format-disconnected": "Disconnected ",
-        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
-        "interval": 10,
-        "consume-icons": {
-            "on": " " // Icon shows only when "consume" is on
-        },
-      "random-icons": {
-            "off": "<span color=\"#f53c3c\"></span> ", // Icon grayed out when "random" is off
-            "on": " "
-        },
-        "repeat-icons": {
-            "on": " "
-        },
-        "single-icons": {
-          "on": "1 "
-        },
-        "state-icons": {
-            "paused": "",
-            "playing": ""
-        },
-        "tooltip-format": "MPD (connected)",
-        "tooltip-format-disconnected": "MPD (disconnected)"
-    },
 
     "custom/Wlogout": {
         "format": " ",
         "tooltip": false,
-        "on-click": "wlogout"
-  }
+        "on-click": "wlogout"  
+    },
+
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "on-click": "activate",
+        "persistent-workspaces": {
+          "1": [],
+          "2": [],
+          "3": [],
+          "4": []
+        },
+        "format": "{icon}",
+        "on-click": "activate",
+        "format-icons": {
+          "1": "",
+          "2": "",
+          "3": "",
+          "4": "",
+          "urgent": "",
+          "active": "",
+          "default": ""
+      },
+    "sort-by-number": true,
+    },
+
+    "clock": {
+        "format": "{:%H:%M}",
+        "format-alt": "{:%A, %B %d, %Y (%R)}  ",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode": "month", // <-- CORREÇÃO 1: Alterado para "month"
+            "mode-mon-col": 3,
+            "weeks-pos": "right",
+            "on-scroll": 1,
+            "format": {
+                "months": "<span color='#ffead3'><b>{}</b></span>",
+                "days": "<span color='#ecc6d9'><b>{}</b></span>",
+                "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+                "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+                "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+            }
+        },
+        "actions": {
+            "on-click-right": "mode",
+            "on-scroll-up": "shift_up", // <-- CORREÇÃO 2: Ações duplicadas removidas
+            "on-scroll-down": "shift_down"
+        }
+    },
+    
+    "network": {
+        "format": "{ifname}",
+        "format-wifi": "({signalStrength}%)   ",
+        "format-ethernet": "{ipaddr}/{cidr} 󰊗",
+        "format-disconnected": "󱚵  ", //An empty format will hide the module.
+        "format-disabled": "󰖪  ",
+        "tooltip-format": "{ifname} via {gwaddr} 󰊗",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+        "tooltip-format-ethernet": "{ifname} ",
+        "tooltip-format-disconnected": "Disconnected",
+        "tooltip-format-disabled": "disabled",
+        "on-click": "nmcli radio wifi $([ $(nmcli radio wifi) = 'enabled' ] && echo 'off' || echo 'on')",
+        "on-click-right": "kitty << echo nmtui",
+        "max-length": 50
+    }
+
 }
