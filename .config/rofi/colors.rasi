@@ -1,0 +1,10 @@
+/* ~/Dotfiles/.config/rofi/colors.rasi */
+* {
+    background:     #1a1e25;
+    background-alt: #7A829A;
+    foreground:     #e4e0dc;
+    selected:       #9f9c9a;
+    active:         #AA96A9;
+    urgent:         #C7A4A3;
+}
+

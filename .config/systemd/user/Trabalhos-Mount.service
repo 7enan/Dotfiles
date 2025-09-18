@@ -1,0 +1,22 @@
+[Unit]
+Description=Montar Google Drive (rclone) - Pasta Trabalhos
+AssertPathIsDirectory=/home/renan/GDrives/Trabalhos
+After=network-online.target
+
+[Service]
+Type=notify
+ExecStart=/usr/bin/rclone mount Trabalhos: %h/GDrives/Trabalhos \
+  --config=/home/renan/.config/rclone/rclone.conf \
+  --vfs-cache-mode=full \
+  --vfs-cache-max-size=5G \
+  --dir-cache-time=12h \
+  --poll-interval=1m \
+  --allow-other
+
+ExecStop=/bin/fusermount -u /home/renan/GDrives/Trabalhos
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=default.target
+

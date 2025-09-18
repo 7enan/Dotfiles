@@ -1,1 +1,15 @@
+; Definição da variável de tempo
+(defpoll time :interval "1s" "date '+%H:%M'")
+
+; Definição do widget do relógio
+(defwidget clock []
+  (label :text time :class "clock")) ; A classe "clock" está aqui, no label.
+
+; Definição da janela
+(defwindow clock_window
+  :monitor 0
+  :geometry (geometry :anchor "top right" :x "180px":y "120px")
+  :stacking "bg"
+  :wm-ignore true
+  (clock))
 

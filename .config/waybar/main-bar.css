@@ -1,28 +1,20 @@
+@import url("/home/renan/.cache/wal/colors-waybar.css");
+
 #waybar {
     font-family: "FiraCode Nerd Font";
     font-size: 14px;
-    background-color: rgba(0, 0, 0, 0);
+    background-color: @background;
+    color: @foreground;
 }
 
 box.modules-right, box.modules-center, box.modules-left {  
     border-radius: 25px;
-    background-color: rgba(46, 41, 68, 0.7);
+    background-color: @color1;
 }
 
-#clock, #tray, #battery, #backlight, #power-profiles-daemon, #pulseaudio, #bluetooth, #mpd {
+#clock, #tray, #battery, #backlight, #power-profiles-daemon, #pulseaudio, #bluetooth, #mpd, #custom-Wlogout {
     padding: 0 10px;
-    color: rgba(167, 149, 245, 1);
+    color: @color7;
     background-color: transparent;
 }
 
-#power-profiles-daemon.balanced {
-    color: rgba(167, 149, 245, 1);
-}
-
-#power-profiles-daemon.power-saver {
-    color: #4A6A61;
-}
-
-#power-profiles-daemon {
-    color: #6A4A53;
-}

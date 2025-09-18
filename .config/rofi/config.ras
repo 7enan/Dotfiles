@@ -1,0 +1,99 @@
+@import "colors.rasi"
+
+configuration {
+
+    modi: "drun,run,window";
+
+    show-icons: true;
+
+    font: "JetBrains Mono Nerd Font 11";
+
+    icon-theme: "Papirus";
+
+    drun-display-format: "{name}";
+}
+
+window {
+    background-color: @background;
+    border:           2px;
+    border-color:     @selected;
+    border-radius:    12px;
+    width:            35%;
+    padding:          24px;
+    location:         center;
+    anchor:           center;
+}
+
+mainbox {
+    background-color: transparent;
+    children:         [ inputbar, listview ];
+    spacing:          15px;
+}
+
+inputbar {
+    background-color: @background-alt;
+    text-color:       @foreground;
+    padding:          12px;
+    border-radius:    8px;
+    children:         [ prompt, entry ];
+}
+
+prompt {
+    enabled:          true;
+    background-color: inherit;
+    text-color:       inherit;
+    padding:          0 10px 0 0;
+}
+
+entry {
+    background-color: inherit;
+    text-color:       inherit;
+    placeholder:      "Pesquisar...";
+    placeholder-color: @foreground;
+    cursor:           text;
+}
+
+listview {
+    background-color: transparent;
+    columns:          1;
+    lines:            8;
+    spacing:          8px;
+    cycle:            true;
+    dynamic:          true;
+    layout:           vertical;
+}
+
+element {
+    background-color: transparent;
+    padding:          10px;
+    border-radius:    8px;
+}
+
+element-text {
+    background-color: inherit;
+    text-color:       inherit;
+    vertical-align:   0.5;
+    horizontal-align: 0.0;
+}
+
+element-icon {
+    background-color: inherit;
+    size:             24px;
+    cursor:           inherit;
+}
+
+element.normal.normal {
+    background-color: @background-alt;
+    text-color:       @foreground;
+}
+
+element.selected.normal {
+    background-color: @selected;
+    text-color:       @background; // Usa a cor de fundo para contraste
+}
+
+element.alternate.normal {
+    background-color: @background;
+    text-color:       @foreground;
+}
+
