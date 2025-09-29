@@ -1,0 +1,22 @@
+[Unit]
+Description=Montar Google Drive (rclone) - Pasta Jogos
+AssertPathIsDirectory=/home/renan/GDrives/Jogos
+After=network-online.target
+
+[Service]
+Type=notify
+ExecStart=/usr/bin/rclone mount Jogos: %h/GDrives/Jogos \
+  --config=/home/renan/.config/rclone/rclone.conf \
+  --vfs-cache-mode=full \
+  --vfs-cache-max-size=5G \
+  --dir-cache-time=12h \
+  --poll-interval=1m \
+  --allow-other
+
+ExecStop=/bin/fusermount -u /home/renan/GDrives/Jogos
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=default.target
+
