@@ -1,6 +1,6 @@
 #!/bin/bash
 
-CONFIG_FILE="~/Dotfiles/.config/rofi/config.ras"
+CONFIG_FILE="~/Dotfiles/rofi/config.ras"
 
 # Lança o Rofi em modo drun e captura seu PID
 rofi -show drun -config $CONFIG_FILE &
